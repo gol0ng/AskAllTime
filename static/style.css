@@ -1,0 +1,68 @@
+/* 基本样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    height: 100vh;
+}
+
+/* 表格样式 */
+table {
+    margin-top: 50px;
+    width: 80%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 1.5rem;
+}
+
+/* 表头样式 */
+thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 表格行样式 */
+tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 表格单元格样式 */
+td {
+    padding: 12px;
+    color: #333;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}

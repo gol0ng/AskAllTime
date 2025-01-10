@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>askalltime index</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        function gotoPage(url) {
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+<button onclick="gotoPage('/settings')" style="margin-left: 20px;height: 30px">设置</button>
+    <table>
+        <tr>
+            <th>问题</th>
+            <th>答案</th>
+            <th>提问时间</th>
+            <th>功能</th>
+        </tr>
+        {% for item in items %}
+            <!-- 假设每个 item 都有一个 'id' 属性，它对应着该条目的唯一URL -->
+            <tr>
+                <td>{{ item.question }}</td>
+                <td>{{ item.answer }}</td>
+                <td>{{ item.time }}</td>
+                <td><a href="{{ url_for('history',hid=item.id) }}" style="color: black;text-decoration: none" >详情</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

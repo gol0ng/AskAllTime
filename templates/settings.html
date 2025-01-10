@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>askalltime index</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript">
+        function gotoPage(url) {
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+<button onclick="gotoPage('/settings/addmodel')" style="margin-left: 20px;height: 30px">添加模型</button>
+    <table>
+        <tr>
+            <th>模型昵称</th>
+            <th>url</th>
+            <th>APIkey</th>
+            <th>默认</th>
+            <th>功能</th>
+        </tr>
+        {% for item in list %}
+            <!-- 假设每个 item 都有一个 'id' 属性，它对应着该条目的唯一URL -->
+            <tr>
+                <td>{{ item.model_nickname }}</td>
+                <td>{{ item.url }}</td>
+                <td>{{ item.APIkey }}</td>
+                <td>{{ item.is_default }}</td>
+                <td><button onclick="updateModel('{{ item.id }}')">修改</button><button onclick="deleteModel('{{ item.id }}')">删除</button><button onclick="setdefaultmodel('{{ item.id }}')">设为默认</button></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+<script type="text/javascript">
+    function gotoPage(url) {
+        window.location.href = url;
+    }
+    function setdefaultmodel(id){
+        window.location.href = "/settings/setdefaultmodel/"+id;
+    }
+    function deleteModel(id){
+        window.location.href = "/settings/deletemodel/"+id;
+    }
+    function updateModel(id){
+        window.location.href = "/settings/updatemodel/"+id;
+    }
+
+</script>
+</html>
